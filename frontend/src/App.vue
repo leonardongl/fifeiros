@@ -1,12 +1,15 @@
 <template>
   <div class="container-fluid" id="app">
+    <header-app></header-app>
     <router-view/>
   </div>
 </template>
 
 <script>
+import HeaderApp from './components/header/HeaderApp'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { HeaderApp }
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="row pt-5 px-5">
+  <div class="row pt-1 px-5">
     <ranking-home :titulo="'RANKING'"></ranking-home>
     <destaques-home :titulo="'DESTAQUES'"></destaques-home>
     <ranking-jogador-home :titulo="'GOLEADORES'"></ranking-jogador-home>
