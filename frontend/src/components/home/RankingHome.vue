@@ -3,46 +3,25 @@
     <div class="card" @click="link()">
       <h1 class="titulo">{{ titulo }}</h1>
       <table class="ranking-table" style="width:96% !important">
+        <thead>
+          <tr class="tr-thead">
+            <td colspan="2"></td>
+            <td class="text-center">PTS</td>
+            <td class="text-center">JGS</td>
+            <td class="text-center">VIT</td>
+            <td class="text-center">EMP</td>
+            <td class="text-center">DER</td>
+          </tr>
+        </thead>
         <tbody>
-          <tr>
-            <td>Liverpool FC</td>
-            <td class="w-10 text-center">22</td>
-            <td class="w-10 text-center">22</td>
-            <td class="w-10 text-center">22</td>
-            <td class="w-10 text-center">22</td>
-            <td class="w-10 text-center">22</td>
-          </tr>
-          <tr>
-            <td>Real Madrid CF</td>
-            <td class="w-10 text-center">18</td>
-            <td class="w-10 text-center">18</td>
-            <td class="w-10 text-center">18</td>
-            <td class="w-10 text-center">18</td>
-            <td class="w-10 text-center">18</td>
-          </tr>
-          <tr>
-            <td>Juventus FC</td>
-            <td class="w-10 text-center">16</td>
-            <td class="w-10 text-center">16</td>
-            <td class="w-10 text-center">16</td>
-            <td class="w-10 text-center">16</td>
-            <td class="w-10 text-center">16</td>
-          </tr>
-          <tr>
-            <td>Barcelona FC</td>
-            <td class="w-10 text-center">15</td>
-            <td class="w-10 text-center">15</td>
-            <td class="w-10 text-center">15</td>
-            <td class="w-10 text-center">15</td>
-            <td class="w-10 text-center">15</td>
-          </tr>
-          <tr>
-            <td>Bayern FC</td>
-            <td class="w-10 text-center">14</td>
-            <td class="w-10 text-center">14</td>
-            <td class="w-10 text-center">14</td>
-            <td class="w-10 text-center">14</td>
-            <td class="w-10 text-center">14</td>
+          <tr v-for="(club, index) in clubs" :key='club.id'>
+            <td class="w-10 text-center">{{ index+1 }}º</td>
+            <td>{{ club.name }}</td>
+            <td class="w-10 text-center">{{ club.points }}</td>
+            <td class="w-10 text-center">{{ club.matches }}</td>
+            <td class="w-10 text-center">{{ club.wins }}</td>
+            <td class="w-10 text-center">{{ club.draws }}</td>
+            <td class="w-10 text-center">{{ club.losts }}</td>
           </tr>
         </tbody>
       </table>
@@ -51,22 +30,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'RankingHome',
   props: {
-    col: {
-      type: String,
-      default: 'col-sm-8'
-    },
-    titulo: {
-      type: String,
-      required: true
+    col: { type: String, default: 'col-sm-8'},
+    titulo: { type: String, required: true },
+    url: { type: String, required: true },
+  },
+  data() {
+    return {
+      clubs: []
     }
   },
+  mounted() {
+    this.ranking()
+  },
   methods: {
-    link() {
-      console.log(123)
-      router.push('ranking')
+    ranking() {
+      axios.get(`${this.url}/clubs/ranking`, {})
+        .then((response) => {
+          this.clubs = response.data
+        })
+        .catch()
     }
   },
 }

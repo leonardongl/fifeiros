@@ -2,33 +2,48 @@
   <div :class="col" id="destaques-home">
     <div class="card">
       <h1 class="titulo">{{ titulo }}</h1>
-      <div class="row">
-        <div class="col-6 pt-2">
-          <div class="foto-destaque">
-            <img src="https://futhead.cursecdn.com/static/img/21/players/190871.png" alt="Neymar">
-            <div class="nome-destaque">Neymar</div>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div v-for="(player, index) in players" :key="player.id" class="carousel-item" :id="'highlights-item-'+index">
+            <div class="row">
+              <div class="col-6 pt-2">
+                <div class="foto-destaque">
+                  <img src="https://futhead.cursecdn.com/static/img/21/players/209331.png" alt="Neymar">
+                  <div class="nome-destaque">{{ player.name }}</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="item-destaque">
+                  <span>{{ player.goals }}</span> GOLS
+                </div>
+                <div class="item-destaque">
+                  <span>{{ player.assists }}</span> ASSISTÊNCIAS
+                </div>
+                <div class="item-destaque">
+                  <span>{{ player.motm }}</span> ESTRELAS
+                </div>
+                <div class="item-destaque">
+                  <span class="text-warning">{{ player.rating.toFixed(2) }}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-6">
-          <div class="item-destaque">
-            <span>9</span> GOLS
-          </div>
-          <div class="item-destaque">
-            <span>9</span> ASSISTÊNCIAS
-          </div>
-          <div class="item-destaque">
-            <span>9</span> ESTRELAS
-          </div>
-          <div class="item-destaque">
-            <span class="text-warning">8.5</span>
-          </div>
-        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'DestaquesHome',
   props: {
@@ -39,8 +54,29 @@ export default {
     titulo: {
       type: String,
       required: true
+    },
+    url: { type: String, required: true },
+  },
+  data() {
+    return {
+      players: []
     }
-  }
+  },
+  mounted() {
+    this.highlights()
+  },
+  methods: {
+    highlights() {
+      axios.get(`${this.url}/players/home/highlights`, {})
+        .then((response) => {
+          this.players = response.data
+          setTimeout(() => {
+            document.getElementById('highlights-item-0').classList = 'carousel-item active'
+          }, 100);
+        })
+        .catch()
+    }
+  },
 }
 </script>
 
@@ -72,13 +108,13 @@ export default {
   .item-destaque {
     color: #f4f4f4;
     transform: translateY(-3px);
-    font-family: 'Staatliches', cursive;
+    font-family: 'Oswald', sans-serif;
     font-style: italic;
   }
   .item-destaque span {
     font-size: 29px;
-    color: #f4f4f4;
+    color: #89c5de;
     margin-right: 10px;
-    font-family: 'Staatliches', cursive;
+    font-family: 'Oswald', sans-serif;
   }
 </style>

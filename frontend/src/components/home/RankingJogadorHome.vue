@@ -4,25 +4,10 @@
       <h1 class="titulo">{{ titulo }}</h1>
       <table class="ranking-table">
         <tbody>
-          <tr>
-            <td>Ronaldo</td>
-            <td class="w-10 text-center">10</td>
-          </tr>
-          <tr>
-            <td>Messi</td>
-            <td class="w-10 text-center">9</td>
-          </tr>
-          <tr>
-            <td>Neymar</td>
-            <td class="w-10 text-center">9</td>
-          </tr>
-          <tr>
-            <td>Salah</td>
-            <td class="w-10 text-center">7</td>
-          </tr>
-          <tr>
-            <td>Haaland</td>
-            <td class="w-10 text-center">6</td>
+          <tr v-for="(player, index) in players" :key='player.id'>
+            <td class="w-10 text-center">{{ index+1 }}º</td>
+            <td>{{ player.name }}</td>
+            <td class="w-10 text-center">{{ player.value }}</td>
           </tr>
         </tbody>
       </table>
@@ -41,6 +26,10 @@ export default {
     titulo: {
       type: String,
       required: true
+    },
+    players: {
+      type: Array,
+      default: []
     }
   }
 }

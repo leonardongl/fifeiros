@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
     <header-app></header-app>
-    <router-view/>
+    <router-view :url="'http://api.leonardo/api'" />
   </div>
 </template>
 
