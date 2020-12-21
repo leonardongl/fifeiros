@@ -29,14 +29,14 @@
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
-        </a>
+        </a> -->
       </div>
     </div>
   </div>
@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
   #destaques-home {
     padding-right: 5px;
     padding-left: 5px;
@@ -116,5 +116,13 @@ export default {
     color: #89c5de;
     margin-right: 10px;
     font-family: 'Oswald', sans-serif;
+  }
+  .card {
+    cursor: pointer;
+  }
+  .card:hover {
+    transition: 0.5s;
+    z-index: 999;
+    transform: scale(1.03);
   }
 </style>

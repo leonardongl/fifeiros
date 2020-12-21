@@ -35,9 +35,17 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
   #ranking-jogador-home {
     padding-right: 5px;
     padding-left: 5px;
+  }
+  .card {
+    cursor: pointer;
+  }
+  .card:hover {
+    transition: 0.5s;
+    z-index: 999;
+    transform: scale(1.03);
   }
 </style>

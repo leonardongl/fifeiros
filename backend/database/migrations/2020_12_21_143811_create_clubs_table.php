@@ -23,7 +23,7 @@ class CreateClubsTable extends Migration
             $table->integer('wins')->default(0);
             $table->integer('draws')->default(0);
             $table->integer('losts')->default(0);
-            $table->integer('goals_for')->default(0);
+            $table->integer('goals_scored')->default(0);
             $table->integer('goals_against')->default(0);
             $table->integer('points')->default(0);
             $table->timestamps();
