@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="890f4a1f-a7e8-4a64-9bc8-472febdab7e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PlayerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/clubs/ClubShow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClubController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Middleware/Cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Middleware/Cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/js/bootstrap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/clubs/Clubs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/clubs/Clubs.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/clubs/FormClub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/clubs/FormClub.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/RankingHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/RankingHome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -142,8 +151,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/clubs" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components/clubs" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -154,10 +168,22 @@
       <option name="presentableId" value="Default" />
       <updated>1608613159399</updated>
       <workItem from="1608613160603" duration="3162000" />
+      <workItem from="1608639530590" duration="3523000" />
+      <workItem from="1608648335471" duration="4955000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="392" y="125" width="582" height="488" key="find.popup" timestamp="1608656085316">
+      <screen x="0" y="0" width="1366" height="735" />
+    </state>
+    <state x="392" y="125" width="582" height="488" key="find.popup/0.0.1366.735@0.0.1366.735" timestamp="1608656085316" />
+    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup" timestamp="1608656568101">
+      <screen x="0" y="0" width="1366" height="735" />
+    </state>
+    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup/0.0.1366.735@0.0.1366.735" timestamp="1608656568101" />
   </component>
 </project>

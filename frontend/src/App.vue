@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
-    <header-app :url="'http://127.0.0.1:8000'"></header-app>
-    <router-view :url="'http://127.0.0.1:8000/api'" />
+    <header-app :url="'http://api.leonardo'"></header-app>
+    <router-view :url="'http://api.leonardo/api'" />
   </div>
 </template>
 

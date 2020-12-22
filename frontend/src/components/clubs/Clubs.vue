@@ -2,7 +2,7 @@
   <div>
     <form-club :url="url"></form-club>
     <div class="row px-5">
-      <div class="col-12" id="ranking-geral">
+      <div class="col-12" id="clubs">
         <div class="card">
           <h1 class="titulo">TODOS OS CLUBES</h1>
           <table class="ranking-table" style="width:96% !important">
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style scoped>
-  #ranking-geral {
+  #clubs {
     padding-right: 5px;
     padding-left: 5px;
   }

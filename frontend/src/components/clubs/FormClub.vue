@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     save() {
-      axios.post(`${this.url}/players/store`, this.club)
+      axios.post(`${this.url}/clubs/store`, this.club)
         .then((response) => {
           console.log(response)
         })

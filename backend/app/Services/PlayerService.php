@@ -21,6 +21,19 @@ class PlayerService
         }
     }
 
+    public static function listByClub(int $id)
+    {
+        try {
+            return Player::where('club_id', $id)->get();
+        } catch (Throwable $th) {
+            Log::error([
+                'message' => $th->getMessage(),
+                'line' => $th->getLine(),
+                'file' => $th->getFile(),
+            ]);
+        }
+    }
+
     public static function goalsRankingHome()
     {
         try {

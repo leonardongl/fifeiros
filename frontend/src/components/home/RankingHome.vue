@@ -1,6 +1,6 @@
 <template>
   <div :class="col" id="ranking-home">
-    <div class="card" @click="link()">
+    <div class="card">
       <h1 class="titulo">{{ titulo }}</h1>
       <table class="ranking-table" style="width:96% !important">
         <thead>
@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(club, index) in clubs" :key='club.id'>
+          <tr @click="showClub(club.id)" class="tr-body" v-for="(club, index) in clubs" :key='club.id'>
             <td class="w-10 text-center">{{ index+1 }}º</td>
             <td>{{ club.name }}</td>
             <td class="w-10 text-center">{{ club.points }}</td>
@@ -53,6 +53,9 @@ export default {
           this.clubs = response.data
         })
         .catch()
+    },
+    showClub(id) {
+      this.$router.push(`/clubs/${id}`)
     }
   },
 }
@@ -63,12 +66,17 @@ export default {
     padding-right: 5px;
     padding-left: 5px;
   }
-  .card {
-    cursor: pointer;
-  }
   .card:hover {
     transition: 0.5s;
     z-index: 999;
     transform: scale(1.03);
+  }
+  .tr-body {
+    cursor: pointer;
+  }
+  .tr-body:hover {
+    transition: 0.5s;
+    background-color: rgba(0,0,0,0) !important;
+    background-image: linear-gradient(to bottom right, rgba(34, 29, 83, 1), rgba(34, 29, 83, 0.8));
   }
 </style>

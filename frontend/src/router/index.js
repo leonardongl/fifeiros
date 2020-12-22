@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/home/Home'
 import RankingGeral from '@/components/ranking/RankingGeral'
 import Clubs from '@/components/clubs/Clubs'
+import ClubShow from '@/components/clubs/ClubShow'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/clubs',
       name: 'Clubs',
       component: Clubs
+    },
+    {
+      path: '/clubs/:id',
+      name: 'ClubShow',
+      component: ClubShow
     }
   ]
 })
