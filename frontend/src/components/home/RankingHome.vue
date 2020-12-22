@@ -2,7 +2,8 @@
   <div :class="col" id="ranking-home">
     <div class="card">
       <h1 class="titulo">{{ titulo }}</h1>
-      <table class="ranking-table" style="width:96% !important">
+      <card-loading v-if="loading"></card-loading>
+      <table v-else class="ranking-table" style="width:96% !important">
         <thead>
           <tr class="tr-thead">
             <td colspan="2"></td>
@@ -31,8 +32,10 @@
 
 <script>
 import axios from 'axios'
+import CardLoading from "../utils/CardLoading";
 export default {
   name: 'RankingHome',
+  components: {CardLoading},
   props: {
     col: { type: String, default: 'col-sm-8'},
     titulo: { type: String, required: true },
@@ -40,7 +43,8 @@ export default {
   },
   data() {
     return {
-      clubs: []
+      clubs: [],
+      loading: true
     }
   },
   mounted() {
@@ -51,6 +55,7 @@ export default {
       axios.get(`${this.url}/clubs/ranking`, {})
         .then((response) => {
           this.clubs = response.data
+          this.loading = false
         })
         .catch()
     },

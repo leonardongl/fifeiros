@@ -2,6 +2,7 @@
   <div :class="col" id="ranking-jogador-home">
     <div class="card">
       <h1 class="titulo">{{ titulo }}</h1>
+      <card-loading v-if="loading"></card-loading>
       <table class="ranking-table">
         <tbody>
           <tr v-for="(player, index) in players" :key='player.id'>
@@ -16,8 +17,10 @@
 </template>
 
 <script>
+import CardLoading from "../utils/CardLoading";
 export default {
   name: 'RankingJogadorHome',
+  components: {CardLoading},
   props: {
     col: {
       type: String,
@@ -30,6 +33,10 @@ export default {
     players: {
       type: Array,
       default: []
+    },
+    loading: {
+      type: Boolean,
+      default: true
     }
   }
 }

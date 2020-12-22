@@ -2,7 +2,7 @@
   <div class="row px-5">
     <ranking-home :url="url" :titulo="'RANKING'"></ranking-home>
     <destaques-home :url="url" :titulo="'DESTAQUES'"></destaques-home>
-    <ranking-jogador-home :players="playersGoals" :titulo="'GOLEADORES'"></ranking-jogador-home>
+    <ranking-jogador-home :loading="" :players="playersGoals" :titulo="'GOLEADORES'"></ranking-jogador-home>
     <ranking-jogador-home :players="playersAssists" :titulo="'PASSEADORES'"></ranking-jogador-home>
     <ranking-jogador-home :players="playersMotm" :titulo="'MELHORES'"></ranking-jogador-home>
   </div>

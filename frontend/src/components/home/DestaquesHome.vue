@@ -2,7 +2,8 @@
   <div :class="col" id="destaques-home">
     <div class="card">
       <h1 class="titulo">{{ titulo }}</h1>
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <card-loading v-if="loading"></card-loading>
+      <div v-else id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div v-for="(player, index) in players" :key="player.id" class="carousel-item" :id="'highlights-item-'+index">
             <div class="row">
@@ -29,14 +30,6 @@
             </div>
           </div>
         </div>
-        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a> -->
       </div>
     </div>
   </div>
@@ -44,8 +37,10 @@
 
 <script>
 import axios from 'axios'
+import CardLoading from "../utils/CardLoading";
 export default {
   name: 'DestaquesHome',
+  components: {CardLoading},
   props: {
     col: {
       type: String,
@@ -59,7 +54,8 @@ export default {
   },
   data() {
     return {
-      players: []
+      players: [],
+      loading: true
     }
   },
   mounted() {
@@ -70,6 +66,7 @@ export default {
       axios.get(`${this.url}/players/home/highlights`, {})
         .then((response) => {
           this.players = response.data
+          this.loading = false
           setTimeout(() => {
             document.getElementById('highlights-item-0').classList = 'carousel-item active'
           }, 100);
