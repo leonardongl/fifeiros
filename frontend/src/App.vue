@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
-    <header-app :url="'http://localhost:8080'"></header-app>
-    <router-view :url="'http://api.leonardo/api'" />
+    <header-app :url="'http://127.0.0.1:8000'"></header-app>
+    <router-view :url="'http://127.0.0.1:8000/api'" />
   </div>
 </template>
 
@@ -50,7 +50,45 @@ export default {
   .ranking-table tr:nth-child(even) {
     background-color: rgba(34, 29, 83, 0.1);
   }
-  .ranking-table .tr-thead{
+  .ranking-table .tr-thead {
     background-color: rgba(34, 29, 83, 0.1);
+  }
+  .form-group {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .form-group label {
+    color: #89c5de;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+  }
+  .form-control {
+    border-radius: 0 !important;
+    border: none !important;
+  }
+  .custom-file-label {
+    border-radius: 0 !important;
+    border: none !important;
+    color: #777;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  }
+  .custom-file-input {
+    cursor: pointer;
+  }
+  .btn-cadastrar {
+    background-color: #89c5de;
+    color: rgb(34, 29, 83);
+    border: none;
+    border-radius: 0;
+    outline: none !important;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+  .btn-cadastrar:hover {
+    transition: 0.5s;
+    z-index: 999;
+    transform: scale(1.1);
   }
 </style>

@@ -21,4 +21,9 @@ class PlayerController extends Controller
     {
         return PlayerService::highlights()->toJson();
     }
+
+    public function store(Request $request)
+    {
+        dd($request);
+    }
 }

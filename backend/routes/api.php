@@ -18,9 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('clubs', 'ClubController@list');
-Route::get('clubs/ranking', 'ClubController@ranking');
-Route::get('clubs/{id}', 'ClubController@find');
+Route::group(['middleware' => 'cors'], function () {
+    Route::get('clubs', 'ClubController@list');
+    Route::get('clubs/ranking', 'ClubController@ranking');
+    Route::get('clubs/{id}', 'ClubController@find');
 
-Route::get('players/home/ranking', 'PlayerController@rankingHome');
-Route::get('players/home/highlights', 'PlayerController@highlights');
+    Route::post('players/store', 'PlayerController@store');
+    Route::get('players/home/ranking', 'PlayerController@rankingHome');
+    Route::get('players/home/highlights', 'PlayerController@highlights');
+});
