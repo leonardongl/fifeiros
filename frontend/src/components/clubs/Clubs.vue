@@ -5,7 +5,8 @@
       <div class="col-12" id="clubs">
         <div class="card">
           <h1 class="titulo">TODOS OS CLUBES</h1>
-          <table class="ranking-table" style="width:96% !important">
+          <card-loading v-if="loading"></card-loading>
+          <table v-else class="ranking-table" style="width:96% !important">
             <thead>
               <tr class="tr-thead">
                 <td class="w-10 text-center">ID</td>
@@ -38,15 +39,17 @@
 <script>
 import axios from 'axios'
 import FormClub from "./FormClub"
+import CardLoading from "../utils/CardLoading";
 export default {
   name: 'Clubs',
-  components: {FormClub},
+  components: {FormClub, CardLoading},
   props: {
     url: { type: String, default: null }
   },
   data() {
     return {
-      clubs: []
+      clubs: [],
+      loading: true
     }
   },
   mounted() {
@@ -57,6 +60,7 @@ export default {
       axios.get(`${this.url}/clubs/ranking`, {})
         .then((response) => {
           this.clubs = response.data
+          this.loading = false
         })
         .catch()
     }

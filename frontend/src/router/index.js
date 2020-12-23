@@ -4,6 +4,7 @@ import Home from '@/components/home/Home'
 import RankingGeral from '@/components/ranking/RankingGeral'
 import Clubs from '@/components/clubs/Clubs'
 import ClubShow from '@/components/clubs/ClubShow'
+import PlayerShow from "@/components/players/PlayerShow";
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/clubs/:id',
       name: 'ClubShow',
       component: ClubShow
+    },
+    {
+      path: '/players/:id',
+      name: 'PlayerShow',
+      component: PlayerShow
     }
   ]
 })

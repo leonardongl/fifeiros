@@ -26,3 +26,4 @@ Route::get('clubs/players/{id}', 'ClubController@listPlayers');
 
 Route::get('players/home/ranking', 'PlayerController@rankingHome');
 Route::get('players/home/highlights', 'PlayerController@highlights');
+Route::get('players/{id}', 'PlayerController@find');

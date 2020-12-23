@@ -2,7 +2,8 @@
   <div class="row px-5">
     <div class="col-12" id="club">
       <div class="card">
-        <div class="row">
+        <card-loading v-if="loading"></card-loading>
+        <div v-else class="row">
           <div class="col-sm-4 d-flex justify-content-around align-items-center flex-column">
             <img src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png" class="club-img">
             <h1>{{ club.name }}</h1>
@@ -21,7 +22,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(player, index) in players" :key="player.id">
+                <tr @click="showPlayer(player.id) " v-for="(player, index) in players" :key="player.id" class="tr-body">
                   <td class="text-center w-1">{{ player.shirt }}</td>
                   <td>{{ player.name }}</td>
                   <td class="text-center w-1">{{ player.matches }}</td>
@@ -40,7 +41,9 @@
 
 <script>
 import axios from 'axios'
+import CardLoading from "../utils/CardLoading";
 export default {
+  components: {CardLoading},
   props: {
     url: { type: String, default: null }
   },
@@ -48,7 +51,8 @@ export default {
     return {
       id: null,
       club: {},
-      players: []
+      players: [],
+      loading: true
     }
   },
   mounted() {
@@ -70,10 +74,14 @@ export default {
       axios.get(`${this.url}/clubs/players/${this.id}`, {})
         .then((response) => {
           this.players = response.data
+          this.loading = false
         })
         .catch((error) => {
           console.log(error)
         })
+    },
+    showPlayer(id) {
+      this.$router.push(`/players/${id}`)
     }
   },
 }

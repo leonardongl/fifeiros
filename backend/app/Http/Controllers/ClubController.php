@@ -14,14 +14,14 @@ class ClubController extends Controller
         return ClubService::list()->toJson();
     }
 
-    public function ranking()
-    {
-        return ClubService::ranking()->toJson();
-    }
-
     public function find(int $id)
     {
         return ClubService::find($id)->toJson();
+    }
+
+    public function ranking()
+    {
+        return ClubService::ranking()->toJson();
     }
 
     public function listPlayers(int $id)

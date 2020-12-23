@@ -3,7 +3,8 @@
     <div class="col-12" id="ranking-geral">
       <div class="card">
         <h1 class="titulo">Ranking Geral</h1>
-        <table class="ranking-table" style="width:96% !important">
+        <card-loading v-if="loading"></card-loading>
+        <table v-else class="ranking-table" style="width:96% !important">
           <thead>
             <tr class="tr-thead">
               <td colspan="2"></td>
@@ -18,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(club, index) in clubs" :key='club.id'>
+            <tr @click="showClub(club.id)" v-for="(club, index) in clubs" :key='club.id' class="tr-body">
               <td class="w-10 text-center">{{ index+1 }}º</td>
               <td>{{ club.name }}</td>
               <td class="w-10 text-center">{{ club.points }}</td>
@@ -39,14 +40,17 @@
 
 <script>
 import axios from 'axios'
+import CardLoading from "../utils/CardLoading";
 export default {
   name: 'RankingGeral',
+  components: {CardLoading},
   props: {
     url: { type: String, default: null }
   },
   data() {
     return {
-      clubs: []
+      clubs: [],
+      loading: true
     }
   },
   mounted() {
@@ -57,8 +61,12 @@ export default {
       axios.get(`${this.url}/clubs/ranking`, {})
         .then((response) => {
           this.clubs = response.data
+          this.loading = false
         })
         .catch()
+    },
+    showClub(id) {
+      this.$router.push(`/clubs/${id}`)
     }
   },
 }

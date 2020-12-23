@@ -42,14 +42,8 @@ export default {
   name: 'DestaquesHome',
   components: {CardLoading},
   props: {
-    col: {
-      type: String,
-      default: 'col-sm-4'
-    },
-    titulo: {
-      type: String,
-      required: true
-    },
+    col: { type: String, default: 'col-sm-4' },
+    titulo: { type: String, required: true },
     url: { type: String, required: true },
   },
   data() {

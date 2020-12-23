@@ -17,6 +17,11 @@ class PlayerController extends Controller
         ];
     }
 
+    public function find(int $id)
+    {
+        return PlayerService::find($id)->toJson();
+    }
+
     public function highlights()
     {
         return PlayerService::highlights()->toJson();

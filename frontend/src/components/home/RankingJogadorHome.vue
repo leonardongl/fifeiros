@@ -22,22 +22,10 @@ export default {
   name: 'RankingJogadorHome',
   components: {CardLoading},
   props: {
-    col: {
-      type: String,
-      default: 'col-sm-4'
-    },
-    titulo: {
-      type: String,
-      required: true
-    },
-    players: {
-      type: Array,
-      default: []
-    },
-    loading: {
-      type: Boolean,
-      default: true
-    }
+    col: { type: String, default: 'col-sm-4' },
+    titulo: { type: String, required: true },
+    players: { type: Array, default: [] },
+    loading: { type: Boolean, default: true }
   }
 }
 </script>

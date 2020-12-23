@@ -2,7 +2,7 @@
   <div class="row px-5">
     <ranking-home :url="url" :titulo="'RANKING'"></ranking-home>
     <destaques-home :url="url" :titulo="'DESTAQUES'"></destaques-home>
-    <ranking-jogador-home :loading="" :players="playersGoals" :titulo="'GOLEADORES'"></ranking-jogador-home>
+    <ranking-jogador-home :loading="loading" :players="playersGoals" :titulo="'GOLEADORES'"></ranking-jogador-home>
     <ranking-jogador-home :players="playersAssists" :titulo="'PASSEADORES'"></ranking-jogador-home>
     <ranking-jogador-home :players="playersMotm" :titulo="'MELHORES'"></ranking-jogador-home>
   </div>
@@ -28,6 +28,7 @@ export default {
       playersGoals: [],
       playersAssists: [],
       playersMotm: [],
+      loading: true
     }
   },
   mounted() {
@@ -40,6 +41,7 @@ export default {
           this.playersGoals = response.data['goals']
           this.playersAssists = response.data['assists']
           this.playersMotm = response.data['motm']
+          this.loading = false
         })
         .catch()
     }

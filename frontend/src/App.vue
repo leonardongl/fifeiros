@@ -91,4 +91,12 @@ export default {
     z-index: 999;
     transform: scale(1.1);
   }
+  .tr-body {
+    cursor: pointer;
+  }
+  .tr-body:hover {
+    transition: 0.5s;
+    background-color: rgba(0,0,0,0) !important;
+    background-image: linear-gradient(to bottom right, rgba(34, 29, 83, 1), rgba(34, 29, 83, 0.8));
+  }
 </style>
