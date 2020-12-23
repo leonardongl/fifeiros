@@ -1,24 +1,25 @@
 <template>
   <div class="row px-5">
-    <ranking-home :url="url" :titulo="'RANKING'"></ranking-home>
-    <destaques-home :url="url" :titulo="'DESTAQUES'"></destaques-home>
-    <ranking-jogador-home :loading="loading" :players="playersGoals" :titulo="'GOLEADORES'"></ranking-jogador-home>
-    <ranking-jogador-home :players="playersAssists" :titulo="'PASSEADORES'"></ranking-jogador-home>
-    <ranking-jogador-home :players="playersMotm" :titulo="'MELHORES'"></ranking-jogador-home>
+    <home-ranking-club :url="url" :titulo="'RANKING'"></home-ranking-club>
+    <home-highlights :url="url" :titulo="'DESTAQUES'"></home-highlights>
+    <home-ranking-player :loading="loading" :players="playersGoals" :titulo="'GOLEADORES'"></home-ranking-player>
+    <home-ranking-player :loading="loading" :players="playersAssists" :titulo="'PASSEADORES'"></home-ranking-player>
+    <home-ranking-player :loading="loading" :players="playersParticipations" :titulo="'PARTICIPAÇÕES'"></home-ranking-player>
+    <home-ranking-player :loading="loading" :players="playersMotm" :titulo="'MELHORES'"></home-ranking-player>
   </div>
 </template>
 
 <script>
-import RankingHome from './RankingHome'
-import DestaquesHome from './DestaquesHome'
-import RankingJogadorHome from './RankingJogadorHome'
+import HomeRankingClub from './HomeRankingClub'
+import HomeHighlights from './HomeHighlights'
+import HomeRankingPlayer from './HomeRankingPlayer'
 import axios from 'axios'
 export default {
   name: 'Home',
   components: {
-    RankingHome,
-    DestaquesHome,
-    RankingJogadorHome
+    HomeRankingClub,
+    HomeHighlights,
+    HomeRankingPlayer
   },
   props: {
     url: { type: String, default: null }
@@ -27,6 +28,7 @@ export default {
     return {
       playersGoals: [],
       playersAssists: [],
+      playersParticipations: [],
       playersMotm: [],
       loading: true
     }
@@ -40,10 +42,13 @@ export default {
         .then((response) => {
           this.playersGoals = response.data['goals']
           this.playersAssists = response.data['assists']
+          this.playersParticipations = response.data['participations']
           this.playersMotm = response.data['motm']
           this.loading = false
         })
-        .catch()
+        .catch((error) => {
+          console.log(error)
+        })
     }
   },
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form-club :url="url"></form-club>
+    <club-form :url="url"></club-form>
     <div class="row px-5">
       <div class="col-12" id="clubs">
         <div class="card">
@@ -38,11 +38,11 @@
 
 <script>
 import axios from 'axios'
-import FormClub from "./FormClub"
+import ClubForm from "./ClubForm"
 import CardLoading from "../utils/CardLoading";
 export default {
   name: 'Clubs',
-  components: {FormClub, CardLoading},
+  components: {ClubForm, CardLoading},
   props: {
     url: { type: String, default: null }
   },
@@ -62,7 +62,9 @@ export default {
           this.clubs = response.data
           this.loading = false
         })
-        .catch()
+        .catch((error) => {
+          console.log(error)
+        })
     }
   },
 }

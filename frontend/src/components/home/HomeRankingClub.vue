@@ -34,7 +34,7 @@
 import axios from 'axios'
 import CardLoading from "../utils/CardLoading";
 export default {
-  name: 'RankingHome',
+  name: 'HomeRankingClub',
   components: {CardLoading},
   props: {
     col: { type: String, default: 'col-sm-8'},
@@ -57,7 +57,9 @@ export default {
           this.clubs = response.data
           this.loading = false
         })
-        .catch()
+        .catch((error) => {
+          console.log(error)
+        })
     },
     showClub(id) {
       this.$router.push(`/clubs/${id}`)

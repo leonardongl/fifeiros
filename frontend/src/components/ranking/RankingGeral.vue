@@ -63,7 +63,9 @@ export default {
           this.clubs = response.data
           this.loading = false
         })
-        .catch()
+        .catch((error) => {
+          console.log(error)
+        })
     },
     showClub(id) {
       this.$router.push(`/clubs/${id}`)

@@ -11,7 +11,7 @@
             <h3 @click="showClub(club.id)" style="cursor:pointer;">{{ club.name }}</h3>
           </div>
           <div class="col-sm-8">
-            <h2>ESTATÍSTICAS</h2>
+            <h2 class="text-center">ESTATÍSTICAS</h2>
             <div class="row player-stats">
               <div class="col-sm-6">
                 <h3>{{ player.goals }}</h3>

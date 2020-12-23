@@ -3,15 +3,17 @@
 namespace App\Services;
 
 use App\Models\Player;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class PlayerService
 {
-    public static function list()
+    public static function list(): ?Collection
     {
         try {
-            return Player::all();
+            return Player::all() ?? null;
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),
@@ -21,7 +23,7 @@ class PlayerService
         }
     }
 
-    public static function listByClub(int $id)
+    public static function listByClub(int $id): ?Collection
     {
         try {
             return Player::where('club_id', $id)->get();
@@ -34,13 +36,13 @@ class PlayerService
         }
     }
 
-    public static function goalsRankingHome()
+    public static function goalsRankingHome(): ?Collection
     {
         try {
             return Player::where('goals', '>', 0)
                 ->select('id as id', 'name as name', 'goals as value')
                 ->orderByDesc('goals')
-                ->get(5);
+                ->get()->take(5) ?? null;
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),
@@ -50,13 +52,36 @@ class PlayerService
         }
     }
 
-    public static function assistsRankingHome()
+    public static function participationsRankingHome(): ?Collection
+    {
+        try {
+            return Player::where('goals', '>', 0)
+            ->orWhere('assists', '>', 0)
+            ->select(
+                'id as id',
+                'name as name',
+                'goals as goals',
+                'assists as assists',
+                DB::raw('(goals + assists) as value')
+            )
+            ->orderByDesc('value')
+            ->get()->take(5) ?? null;
+        } catch (Throwable $th) {
+            Log::error([
+                'message' => $th->getMessage(),
+                'line' => $th->getLine(),
+                'file' => $th->getFile(),
+            ]);
+        }
+    }
+
+    public static function assistsRankingHome(): ?Collection
     {
         try {
             return Player::where('assists', '>', 0)
-            ->select('id as id', 'name as name', 'assists as value')
-            ->orderByDesc('assists')
-            ->get(5);
+                    ->select('id as id', 'name as name', 'assists as value')
+                    ->orderByDesc('assists')
+                    ->get()->take(5) ?? null;
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),
@@ -66,13 +91,13 @@ class PlayerService
         }
     }
 
-    public static function motmRankingHome()
+    public static function motmRankingHome(): ?Collection
     {
         try {
             return Player::where('motm', '>', 0)
             ->select('id as id', 'name as name', 'motm as value')
             ->orderByDesc('motm')
-            ->get(5);
+            ->get()->take(5) ?? null;
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),
@@ -82,12 +107,12 @@ class PlayerService
         }
     }
 
-    public static function highlights()
+    public static function highlights(): ?Collection
     {
         try {
             return Player::where('rating', '>', '7')
-            ->get()
-            ->random(5);
+            ->orderByDesc('rating')
+            ->get()->take(5) ?? null;
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),
@@ -97,10 +122,10 @@ class PlayerService
         }
     }
 
-    public static function find(int $id)
+    public static function find(int $id): ?Player
     {
         try {
-            return Player::find($id);
+            return Player::find($id) ?? null;
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),

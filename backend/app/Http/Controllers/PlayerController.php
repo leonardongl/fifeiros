@@ -10,25 +10,33 @@ class PlayerController extends Controller
 {
     public function rankingHome()
     {
-        return [
-            'goals' => PlayerService::goalsRankingHome(),
-            'assists' => PlayerService::assistsRankingHome(),
-            'motm' => PlayerService::motmRankingHome()
-        ];
+        try {
+            return [
+                'goals' => PlayerService::goalsRankingHome() ?? null,
+                'assists' => PlayerService::assistsRankingHome() ?? null,
+                'participations' => PlayerService::participationsRankingHome() ?? null,
+                'motm' => PlayerService::motmRankingHome() ?? null
+            ];
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     public function find(int $id)
     {
-        return PlayerService::find($id)->toJson();
+        try {
+            return PlayerService::find($id)->toJson() ?? null;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     public function highlights()
     {
-        return PlayerService::highlights()->toJson();
-    }
-
-    public function store(Request $request)
-    {
-        dd($request);
+        try {
+            return PlayerService::highlights()->toJson() ?? null;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

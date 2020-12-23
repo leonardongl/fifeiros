@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('clubs', 'ClubController@list');
 Route::get('clubs/ranking', 'ClubController@ranking');
-Route::post('clubs', 'ClubController@store');
+Route::post('clubs', function () {
+    dd(1);
+});
 Route::get('clubs/{id}', 'ClubController@find');
 Route::get('clubs/players/{id}', 'ClubController@listPlayers');
 
