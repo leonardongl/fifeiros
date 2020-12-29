@@ -21,10 +21,10 @@ class ClubService
         }
     }
 
-    public static function ranking()
+    public static function find(int $id)
     {
         try {
-            return Club::all()->sortBy('points')->take(4);
+            return Club::find($id);
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),
@@ -34,10 +34,24 @@ class ClubService
         }
     }
 
-    public static function find(int $id)
+    public static function store(array $data)
     {
         try {
-            return Club::find($id);
+            $data['img'] = 'clubs/default.png';
+            return Club::create($data);
+        } catch (Throwable $th) {
+            Log::error([
+                'message' => $th->getMessage(),
+                'line' => $th->getLine(),
+                'file' => $th->getFile(),
+            ]);
+        }
+    }
+
+    public static function ranking()
+    {
+        try {
+            return Club::all()->sortBy('points')->take(4);
         } catch (Throwable $th) {
             Log::error([
                 'message' => $th->getMessage(),

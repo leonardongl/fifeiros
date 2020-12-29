@@ -6,6 +6,8 @@
       <nav class="menu-header">
         <router-link class="link" to="/">INÍCIO</router-link>
         <router-link class="link" to="/ranking">RANKING</router-link>
+        <router-link class="link" to="/matches">PARTIDAS</router-link>
+        <router-link class="link" to="/matches/create">JOGAR</router-link>
         <router-link class="link" to="/clubs">CLUBES</router-link>
       </nav>
     </div>

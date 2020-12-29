@@ -99,4 +99,7 @@ export default {
     background-color: rgba(0,0,0,0) !important;
     background-image: linear-gradient(to bottom right, rgba(34, 29, 83, 1), rgba(34, 29, 83, 0.8));
   }
+  select, option {
+    cursor: pointer;
+  }
 </style>

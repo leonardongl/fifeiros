@@ -17,6 +17,7 @@ class CreatePlayerMatchesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('player_id');
             $table->unsignedBigInteger('match_id');
+            $table->string('side');
             $table->integer('matches')->default(0);
             $table->integer('goals')->default(0);
             $table->integer('assists')->default(0);

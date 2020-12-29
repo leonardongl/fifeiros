@@ -19,6 +19,7 @@ class CreatePlayersTable extends Migration
             $table->unsignedBigInteger('role_id');
             $table->string('name');
             $table->integer('shirt');
+            $table->string('img');
             $table->integer('matches')->default(0);
             $table->integer('goals')->default(0);
             $table->integer('assists')->default(0);

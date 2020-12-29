@@ -5,6 +5,8 @@ import RankingGeral from '@/components/ranking/RankingGeral'
 import Clubs from '@/components/clubs/Clubs'
 import ClubShow from '@/components/clubs/ClubShow'
 import PlayerShow from "@/components/players/PlayerShow";
+import Matches from "@/components/matches/Matches";
+import MatchForm from "@/components/matches/MatchForm";
 
 Vue.use(Router)
 
@@ -34,6 +36,16 @@ export default new Router({
       path: '/players/:id',
       name: 'PlayerShow',
       component: PlayerShow
+    },
+    {
+      path: '/matches',
+      name: 'Matches',
+      component: Matches
+    },
+    {
+      path: '/matches/create',
+      name: 'MatchForm',
+      component: MatchForm
     }
   ]
 })

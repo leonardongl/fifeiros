@@ -47,7 +47,8 @@ import axios from 'axios'
 export default {
   name: 'ClubForm',
   props: {
-    url: { type: String, default: null }
+    url: { type: String, default: null },
+    clubs: { type: Array, default: [] }
   },
   data() {
     return {
@@ -56,11 +57,10 @@ export default {
   },
   methods: {
     save() {
-      axios.post(`${this.url}/clubs`, {
-        id: 123
-      })
+      axios.post(`${this.url}/clubs`, this.club)
         .then((response) => {
           console.log(response)
+          this.clubs.push(response.data)
         })
         .catch((error) => {
           console.log(error)

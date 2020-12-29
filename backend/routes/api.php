@@ -20,12 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('clubs', 'ClubController@list');
 Route::get('clubs/ranking', 'ClubController@ranking');
-Route::post('clubs', function () {
-    dd(1);
-});
+Route::post('clubs', 'ClubController@store');
 Route::get('clubs/{id}', 'ClubController@find');
 Route::get('clubs/players/{id}', 'ClubController@listPlayers');
 
 Route::get('players/home/ranking', 'PlayerController@rankingHome');
 Route::get('players/home/highlights', 'PlayerController@highlights');
 Route::get('players/{id}', 'PlayerController@find');
+
+Route::post('matches', 'MatchController@list');
+Route::post('matches/store', 'MatchController@store');

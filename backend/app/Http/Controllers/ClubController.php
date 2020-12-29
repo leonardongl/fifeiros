@@ -19,6 +19,11 @@ class ClubController extends Controller
         return ClubService::find($id)->toJson();
     }
 
+    public function store(Request $request)
+    {
+        return ClubService::store($request->all())->toJson();
+    }
+
     public function ranking()
     {
         return ClubService::ranking()->toJson();

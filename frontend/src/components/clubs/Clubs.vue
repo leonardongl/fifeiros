@@ -1,9 +1,9 @@
 <template>
   <div>
-    <club-form :url="url"></club-form>
+    <club-form :url="url" :clubs="clubs"></club-form>
     <div class="row px-5">
       <div class="col-12" id="clubs">
-        <div class="card">
+        <div class="card h-auto">
           <h1 class="titulo">TODOS OS CLUBES</h1>
           <card-loading v-if="loading"></card-loading>
           <table v-else class="ranking-table" style="width:96% !important">
@@ -53,10 +53,10 @@ export default {
     }
   },
   mounted() {
-    this.ranking()
+    this.listClubs()
   },
   methods: {
-    ranking() {
+    listClubs() {
       axios.get(`${this.url}/clubs/ranking`, {})
         .then((response) => {
           this.clubs = response.data

@@ -5,21 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="890f4a1f-a7e8-4a64-9bc8-472febdab7e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Services/MatchService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/matches/MatchForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/matches/Matches.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PlayerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PlayerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Services/PlayerService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/PlayerService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/MatchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/MatchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/Club.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/Club.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Services/ClubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Services/ClubService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2020_12_21_143815_create_players_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2020_12_21_143815_create_players_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2020_12_21_143936_create_player_matches_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2020_12_21_143936_create_player_matches_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeds/ClubTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeds/ClubTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/seeds/PlayerTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/seeds/PlayerTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/clubs/ClubForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/clubs/ClubForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/clubs/Clubs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/clubs/Clubs.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/clubs/FormClub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/clubs/ClubForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/DestaquesHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/HomeHighlights.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/RankingHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/HomeRankingClub.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/home/RankingJogadorHome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/home/HomeRankingPlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/players/PlayerShow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/players/PlayerShow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ranking/RankingGeral.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ranking/RankingGeral.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/header/HeaderApp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/header/HeaderApp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,11 +159,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/components/clubs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/app/Services" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/app/Services" />
+      <recent name="$PROJECT_DIR$/frontend/src/components/matches" />
       <recent name="$PROJECT_DIR$/frontend/src/components/clubs" />
     </key>
   </component>
@@ -183,6 +188,13 @@
       <workItem from="1608745993428" duration="2898000" />
       <workItem from="1608749723220" duration="160000" />
       <workItem from="1608749940278" duration="4272000" />
+      <workItem from="1609159897585" duration="92000" />
+      <workItem from="1609252444039" duration="2620000" />
+      <workItem from="1609261477143" duration="1542000" />
+      <workItem from="1609263184861" duration="608000" />
+      <workItem from="1609264464337" duration="3058000" />
+      <workItem from="1609267619857" duration="4003000" />
+      <workItem from="1609271952592" duration="686000" />
     </task>
     <servers />
   </component>
@@ -194,9 +206,9 @@
       <screen x="0" y="0" width="1366" height="735" />
     </state>
     <state x="392" y="125" width="582" height="488" key="find.popup/0.0.1366.735@0.0.1366.735" timestamp="1608656085316" />
-    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup" timestamp="1608754080568">
+    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup" timestamp="1609271536371">
       <screen x="0" y="0" width="1366" height="735" />
     </state>
-    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup/0.0.1366.735@0.0.1366.735" timestamp="1608754080568" />
+    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup/0.0.1366.735@0.0.1366.735" timestamp="1609271536371" />
   </component>
 </project>
